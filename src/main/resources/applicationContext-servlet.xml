@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jndi="http://www.springframework.org/schema/jndi" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-2.0.xsd 
+    http://www.springframework.org/schema/tx  
+    http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/jndi 
+    http://www.springframework.org/schema/jndi/spring-jndi.xsd 
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<!-- ServletMapping类初始化 -->
+	<bean scope="singleton" id="ServletMapping" class="java.util.HashMap">
+		<constructor-arg>
+		<!-- key为url value-ref为处理器is -->
+		   <map>
+		   	<!-- 获取权限树 -->
+			
+			<entry key="/getUserMenuTree" value-ref="userMenuTree" />
+			
+			
+			<!-- 获取用户列表  -->
+			<entry key="/system/userInfo" value-ref="userInfo" />
+		    <entry key="/system/getUserList" value-ref="userList" />
+		    <entry key="/system/changepwd" value-ref="changePwdHandle" />
+		    <entry key="/system/userDelete" value-ref="userDelete" />
+		    <entry key="/system/userAdd" value-ref="userAdd" />
+		    <entry key="/system/userModify" value-ref="userModify" />
+		    <entry key="/system/getRoleList" value-ref="roleList" />
+		    <entry key="/system/getRoleRight" value-ref="roleRight" />
+		    <entry key="/system/roleAdd" value-ref="roleAdd" />
+		    <entry key="/system/roleModify" value-ref="roleModify" />
+		    <entry key="/system/roleDelete" value-ref="roleDelete" />
+		    
+		    <entry key="/download" value-ref="download"></entry>
+		    <!-- <entry key="/getRoleDetails" value-ref="roleDetail" /> -->
+		    
+		    <!-- manufacturer -->
+		    <entry key="/manufacturer/queryList" value-ref="manufacturerList"></entry>
+		    <entry key="/manufacturer/edit" value-ref="manufacturerEdit"></entry>
+		    <!-- sdk -->
+		    <entry key="/sdk/queryList" value-ref="sdkList"></entry>
+		    <entry key="/sdk/edit" value-ref="sdkEdit"></entry>
+		    <entry key="/sdk/upload" value-ref="sdkUpload"></entry>
+		    <!-- channel -->
+		    <entry key="/channel/queryList" value-ref="channelList"></entry>
+		    <entry key="/channel/edit" value-ref="channelEdit"></entry>
+		    <!-- corporation -->
+		    <entry key="/corporation/queryList" value-ref="corporationList"></entry>
+		    <entry key="/corporation/edit" value-ref="corporationEdit"></entry>
+		    <!-- product -->
+		    <entry key="/product/queryList" value-ref="productList"></entry>
+		    <entry key="/product/edit" value-ref="productEdit"></entry>
+		    <entry key="/product/upload" value-ref="productUpload"></entry>
+		    <!-- productRelative -->
+		    <entry key="/productRelative/queryList" value-ref="productRelativeList"></entry>
+		    <entry key="/productRelative/edit" value-ref="productRelativeEdit"></entry>
+		    <entry key="/productRelative/upload" value-ref="productRelativeUpload"></entry>
+		    <!-- Report -->
+		    <entry key="/customer_info/queryList" value-ref="customerInfoList"></entry>
+		    <entry key="/customer_login/queryList" value-ref="customerLoginList"></entry>
+		    <entry key="/sdk_fee_detail/queryList" value-ref="sdkFeeDetailList"></entry>
+		    <entry key="/local_fee_detail/queryList" value-ref="localFeeDetailList"></entry>
+		    <entry key="/channel_detail/queryList" value-ref="channelDetailList"></entry>
+		    <entry key="/customer_allcustomer/query" value-ref="allCustomer"></entry>
+		    
+		    <entry key="/channel_detail_active_mock/queryList" value-ref="channelDetailActiveMockList"></entry>
+		    <entry key="/channel_detail_active_mock/edit" value-ref="channelDetailActiveMockEdit"></entry>
+		    
+		    <entry key="/channel_detail_proportion_mock/queryList" value-ref="channelDetailProportionMockList"></entry>
+		    <entry key="/channel_detail_proportion_mock/edit" value-ref="channelDetailProportionMockEdit"></entry>
+		    
+		    <!-- Statistic -->
+		    <entry key="/sdk_fee_sta/queryList" value-ref="sdkFeeStaList"></entry>
+		    <entry key="/local_fee_sta/queryList" value-ref="localFeeStaList"></entry>
+		    <entry key="/active_sta/queryList" value-ref="activeStaList"></entry>
+		    <entry key="/sdk_transfer_sta/queryList" value-ref="sdkTransferStaList"></entry>
+		    
+			<!-- fee node  -->
+		    
+		    <entry key="/fee_node_strategy/queryList" value-ref="feeNodeStrategyList"></entry>
+		    <entry key="/fee_node_strategy/edit" value-ref="feeNodeStrategyEdit"></entry>
+		    
+		    <entry key="/fee_node_relative/queryList" value-ref="feeNodeRelativeList"></entry>
+		    <entry key="/fee_node_relative/edit" value-ref="feeNodeRelativeEdit"></entry>
+		    
+		    <entry key="/fee_node_template/queryList" value-ref="feeNodeTemplateList"></entry>
+		    <entry key="/fee_node_template/edit" value-ref="feeNodeTemplateEdit"></entry>
+		    
+			<!-- product config  -->
+		    <entry key="/product_config/queryList" value-ref="productConfigList"></entry>
+		    <entry key="/product_config/edit" value-ref="productConfigEdit"></entry>
+			<!-- sdk config  -->
+		    <entry key="/sdk_config/queryList" value-ref="sdkConfigList"></entry>
+		    <entry key="/sdk_config/edit" value-ref="sdkConfigEdit"></entry>
+		    
+		    <!-- Task -->
+		    <entry key="/statistic_task" value-ref="statisticTask"></entry>
+		   </map>
+  		</constructor-arg>
+	</bean>
+	<!-- login 
+	<bean scope="singleton" id="login" class="com.tangpeng.servlet.LoginServlet">
+		<property name="securityService" ref="SecurityService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>-->
+	
+	<!-- 处理器 单例，要求处理器是无状态的-->
+	<!-- 用户菜单树 -->
+	<bean scope="singleton" id="userMenuTree" class="com.tangpeng.handle.usermangement.UserMenuTreeHandle">
+		<property name="securityService" ref="SecurityService"></property>
+	</bean>
+	<!-- 用户权限 -->
+	<bean scope="singleton" id="userRight" class="com.tangpeng.handle.usermangement.UserRightHandle">
+		<property name="securityService" ref="SecurityService"></property>
+	</bean>
+	<bean scope="singleton" id="userInfo" class="com.tangpeng.handle.usermangement.UserInfoHandle">
+	</bean>
+	<!-- 用户列表 -->
+	<bean scope="singleton" id="userList" class="com.tangpeng.handle.usermangement.UserListHandle">
+		<property name="securityService" ref="SecurityService"></property>
+	</bean>
+	<bean scope="singleton" id="roleRight" class="com.tangpeng.handle.rolemangement.RoleRightHandle">
+		<property name="securityService" ref="SecurityService"></property>
+	</bean>
+	<bean scope="singleton" id="userDelete" class="com.tangpeng.handle.usermangement.UserDeleteHandle">
+		<property name="securityService" ref="SecurityService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	<bean scope="singleton" id="userAdd" class="com.tangpeng.handle.usermangement.UserAddHandle">
+		<property name="securityService" ref="SecurityService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	<bean scope="singleton" id="userModify" class="com.tangpeng.handle.usermangement.UserModifyHandle">
+		<property name="securityService" ref="SecurityService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>	
+	<bean scope="singleton" id="changePwdHandle" class="com.tangpeng.handle.usermangement.ChangePwdHandle">
+		<property name="securityService" ref="SecurityService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	<!-- 角色列表 -->
+	<bean scope="singleton" id="roleList" class="com.tangpeng.handle.rolemangement.RoleListHandle">
+		<property name="securityService" ref="SecurityService"></property>
+	</bean>
+	<bean scope="singleton" id="roleAdd" class="com.tangpeng.handle.rolemangement.RoleAddHandle">
+		<property name="securityService" ref="SecurityService"></property>
+	</bean>
+	<bean scope="singleton" id="roleModify" class="com.tangpeng.handle.rolemangement.RoleModifyHandle">
+		<property name="securityService" ref="SecurityService"></property>
+	</bean>
+	
+	<bean scope="singleton" id="roleDelete" class="com.tangpeng.handle.rolemangement.RoleDeleteHandle">
+		<property name="securityService" ref="SecurityService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	
+	<!-- <bean scope="singleton" id="roleDetail" class="com.tangpeng.handle.rolemangement.RoleDetailHandle"></bean> -->
+	<!-- manufacturer -->
+	<bean id="manufacturerList" class="com.product.Manufacturer.ManufacturerListHandle">
+		<property name="manufacturerService" ref="ManufacturerService"></property>
+	</bean>
+	
+	<bean id="manufacturerEdit" class="com.product.Manufacturer.ManufacturerEditHandle">
+		<property name="manufacturerService" ref="ManufacturerService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	
+	<!-- sdk -->
+	<bean id="sdkList" class="com.product.Manufacturer.SdkListHandle">
+		<property name="sdkService" ref="SdkService"></property>
+	</bean>
+	
+	<bean id="sdkEdit" class="com.product.Manufacturer.SdkEditHandle">
+		<property name="sdkService" ref="SdkService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	<bean id="sdkUpload" class="com.product.Manufacturer.SdkUploadHandle">
+		<property name="sdkService" ref="SdkService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+		<property name="config" ref="Config"></property>
+	</bean>
+	
+	
+	<!-- Channel -->
+	
+	<bean id="channelList" class="com.product.product.ChannelListHandle">
+		<property name="channelService" ref="ChannelService"></property>
+	</bean>
+	
+	<bean id="channelEdit" class="com.product.product.ChannelEditHandle">
+		<property name="channelService" ref="ChannelService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	
+	<!-- Corporation -->
+	
+	<bean id="corporationList" class="com.product.product.CorporationListHandle">
+		<property name="corporationService" ref="CorporationService"></property>
+	</bean>
+	
+	<bean id="corporationEdit" class="com.product.product.CorporationEditHandle">
+		<property name="corporationService" ref="CorporationService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	
+	
+	<!-- product -->
+	<bean id="productList" class="com.product.product.ProductListHandle">
+		<property name="productService" ref="ProductService"></property>
+	</bean>
+	
+	<bean id="productEdit" class="com.product.product.ProductEditHandle">
+		<property name="productService" ref="ProductService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	<bean id="productUpload" class="com.product.product.ProductUploadHandle">
+		<property name="productService" ref="ProductService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+		<property name="config" ref="Config"></property>
+	</bean>
+	<!-- productRelative -->
+	<bean id="productRelativeList" class="com.product.product.ProductRelativeListHandle">
+		<property name="productRelativeService" ref="ProductRelativeService"></property>
+	</bean>
+	
+	<bean id="productRelativeEdit" class="com.product.product.ProductRelativeEditHandle">
+		<property name="productRelativeService" ref="ProductRelativeService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	<bean id="productRelativeUpload" class="com.product.product.ProductRelativeUploadHandle">
+		<property name="productRelativeService" ref="ProductRelativeService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+		<property name="config" ref="Config"></property>
+	</bean>
+	
+	<!-- Report -->
+	<bean id="customerInfoList" class="com.product.report.CustomerInfoListHandle">
+		<property name="reportQueryService" ref="ReportQueryService"></property>
+	</bean>
+	<bean id="customerLoginList" class="com.product.report.CustomerLoginListHandle">
+		<property name="reportQueryService" ref="ReportQueryService"></property>
+	</bean>
+	<bean id="sdkFeeDetailList" class="com.product.report.SdkFeeDetailListHandle">
+		<property name="reportQueryService" ref="ReportQueryService"></property>
+	</bean>
+	<bean id="localFeeDetailList" class="com.product.report.LocalFeeDetailListHandle">
+		<property name="reportQueryService" ref="ReportQueryService"></property>
+	</bean>
+	<bean id="channelDetailList" class="com.product.report.ChannelDetailListHandle">
+		<property name="reportQueryService" ref="ReportQueryService"></property>
+	</bean>
+	<bean id="channelDetailActiveMockList" class="com.product.report.ChannelDetailActiveMockListHandle">
+		<property name="reportQueryService" ref="ReportQueryService"></property>
+	</bean>
+	<bean id="channelDetailActiveMockEdit" class="com.product.report.ChannelDetailActiveMockEditHandle">
+		<property name="reportQueryService" ref="ReportQueryService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	
+	<bean id="channelDetailProportionMockList" class="com.product.report.ChannelDetailProportionMockListHandle">
+		<property name="reportQueryService" ref="ReportQueryService"></property>
+	</bean>
+	<bean id="channelDetailProportionMockEdit" class="com.product.report.ChannelDetailProportionMockEditHandle">
+		<property name="reportQueryService" ref="ReportQueryService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	
+	
+	<bean id="allCustomer" class="com.product.report.AllCustomerHandle">
+		<property name="reportQueryService" ref="ReportQueryService"></property>
+	</bean>
+	
+	<!-- statistic  -->
+	<bean id="sdkFeeStaList" class="com.product.statistic.SdkFeeStaListHandle">
+		<property name="statisticQueryService" ref="StatisticQueryService"></property>
+	</bean>
+	<bean id="localFeeStaList" class="com.product.statistic.LocalFeeStaListHandle">
+		<property name="statisticQueryService" ref="StatisticQueryService"></property>
+	</bean>
+	<bean id="activeStaList" class="com.product.statistic.ActiveStaListHandle">
+		<property name="statisticQueryService" ref="StatisticQueryService"></property>
+	</bean>
+	<bean id="sdkTransferStaList" class="com.product.statistic.SdkTransferStaListHandle">
+		<property name="statisticQueryService" ref="StatisticQueryService"></property>
+	</bean>
+	
+	<bean id="download" class="com.product.common.DownloadHandle">
+		<property name="sdkService" ref="SdkService"></property>
+		<property name="productService" ref="ProductService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+		<property name="config" ref="Config"></property>
+	</bean>
+	
+	<!-- fee node -->	
+	<bean id="feeNodeStrategyList" class="com.product.config.FeeNodeStrategyListHandle">
+		<property name="configService" ref="ConfigService"></property>
+	</bean>
+	
+	<bean id="feeNodeStrategyEdit" class="com.product.config.FeeNodeStrategyEditHandle">
+		<property name="configService" ref="ConfigService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	
+	
+	<bean id="feeNodeRelativeList" class="com.product.config.FeeNodeRelativeListHandle">
+		<property name="configService" ref="ConfigService"></property>
+	</bean>
+	
+	<bean id="feeNodeRelativeEdit" class="com.product.config.FeeNodeRelativeEditHandle">
+		<property name="configService" ref="ConfigService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	
+	
+	<bean id="feeNodeTemplateList" class="com.product.config.FeeNodeTemplateListHandle">
+		<property name="configService" ref="ConfigService"></property>
+	</bean>
+	
+	<bean id="feeNodeTemplateEdit" class="com.product.config.FeeNodeTemplateEditHandle">
+		<property name="configService" ref="ConfigService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	
+	<!-- product config -->
+	<bean id="productConfigList" class="com.product.config.ProductConfigListHandle">
+		<property name="configService" ref="ConfigService"></property>
+	</bean>
+	
+	<bean id="productConfigEdit" class="com.product.config.ProductConfigEditHandle">
+		<property name="configService" ref="ConfigService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	<!-- sdk config -->
+	<bean id="sdkConfigList" class="com.product.config.SdkConfigListHandle">
+		<property name="configService" ref="ConfigService"></property>
+	</bean>
+	
+	<bean id="sdkConfigEdit" class="com.product.config.SdkConfigEditHandle">
+		<property name="configService" ref="ConfigService"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	
+	<bean id="statisticTask" class="com.product.task.ReportStatisticTaskHandle">
+		<property name="i18nService" ref="I18nService"></property>
+		<property name="reportStatisticTask" ref="ReportStatisticInit"></property>
+	</bean>
+	
+</beans>

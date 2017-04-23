@@ -1,0 +1,23 @@
+IP:123.1.157.90
+用户名/密码：root/20121002@
+连接方式：SSH，端口22
+进去之后：cd ..
+tomcat 安装在/usr/local/tomcat7.0
+启动tomcat：/usr/local/tomcat7.0/bin/startup.sh
+关闭tomcat: /usr/local/tomcat7.0/bin/shutdown.sh
+应用部署：/usr/local/tomcat7.0/webapps/
+端口：8250
+
+查看mysql是否已经启动：service mysqld status
+启动mysql: /etc/init.d/mysqld start
+关闭mysql: /etc/init.d/mysqld stop
+进入：mysql -u root -p
+
+mysql用户名/密码：zhouxiaoke/zhouxiaoke
+数据库名称：
+zovtoDB 
+
+/home/channel_user/tomcat7.0/webapps/channel
+
+./catalina.sh jpda start 
+show processlist;

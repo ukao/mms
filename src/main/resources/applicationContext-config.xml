@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jndi="http://www.springframework.org/schema/jndi" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-2.0.xsd 
+    http://www.springframework.org/schema/tx  
+    http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/jndi 
+    http://www.springframework.org/schema/jndi/spring-jndi.xsd 
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<!-- 配置参数，附件上传的地址 -->
+	<bean scope="singleton" id="Config" class="java.util.HashMap">
+		<constructor-arg>
+		<!-- key value -->
+		   <map>
+		   	<!-- sdk根路径 -->
+			<entry key="sdkRootPath" value="/home/channel_user/attachment/sdk/" />
+			<entry key="productRootPath" value="/home/channel_user/attachment/product/" />
+			<entry key="productRelativeRootPath" value="/home/channel_user/attachment/productRelative/" />
+		   </map>
+  		</constructor-arg>
+	</bean>
+	
+	<!-- 渠道角色的ID号,此ID为系统生成,渠道用户3种角色，分成渠道，计费渠道和混合渠道 -->
+	<bean scope="singleton" id="ChannelRoleId" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+			<value>2</value>
+			<value>4</value>
+			<value>5</value>
+			</list>
+  		</constructor-arg>
+	</bean>
+	
+	<!-- 任务列表 -->
+	<bean scope="singleton" id="TaskList"  class="java.util.ArrayList">
+		<constructor-arg>
+		 <list>
+		      <!--<ref bean="ReportStatisticInit"></ref>-->
+    	</list>
+    	</constructor-arg>
+	</bean>
+	
+	<!-- 地址配置 -->
+	<bean scope="singleton" id="SyncURL"  class="java.lang.String">
+		<constructor-arg><value>http://www.zovto.com/smartgame/sync/</value></constructor-arg>
+	</bean>
+	
+	<!-- 任务运行时间 -->
+	<bean scope="singleton" id="ReportStatisticInit" class="com.product.task.ReportStatisticInit">
+		<property name="dataSource" ref="DataSource"></property>
+		<property name="runningTime">
+		<!-- 分别为时分秒 -->
+			<list>
+			<value>01</value>
+			<value>45</value>
+			<value>00</value>
+			</list>
+		</property>
+	</bean>
+</beans>

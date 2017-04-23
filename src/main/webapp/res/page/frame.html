@@ -1,0 +1,40 @@
+<HTML>
+	<head>
+	<link type="text/css" rel="stylesheet" href='../css/menu.css'></link>
+	
+    <SCRIPT>var isomorphicDir="../isomorphic/";</SCRIPT>
+    <SCRIPT SRC=../isomorphic/system/modules/ISC_Core.js></SCRIPT>
+    <SCRIPT SRC=../isomorphic/system/modules/ISC_Foundation.js></SCRIPT>
+    <SCRIPT SRC=../isomorphic/system/modules/ISC_Containers.js></SCRIPT>
+    <SCRIPT SRC=../isomorphic/system/modules/ISC_Grids.js></SCRIPT>
+    <SCRIPT SRC=../isomorphic/system/modules/ISC_Forms.js></SCRIPT>
+    <SCRIPT SRC=../isomorphic/system/modules/ISC_DataBinding.js></SCRIPT>
+    <!--<SCRIPT SRC=../isomorphic/skins/EnterpriseBlue/load_skin.js></SCRIPT>
+    --><SCRIPT SRC=../isomorphic/skins/SmartClient/load_skin.js></SCRIPT>
+	<script src='../js/jquery.js'></script>
+	<script src='../js/UserRight.js'></script>
+	<script src='../js/CommonUtil.js'></script>
+	<script src='../js/CenterFrame.js'></script>
+	<script src='../js/FrameWork.js'></script>
+	<script>
+		$(function() {
+		$(".btmiddle").click(function() {
+			if ($(".btmiddle").hasClass("bt")) {
+				$(".btmiddle").removeClass("bt");
+				$(".btmiddle").addClass("clicked");
+				$("#menu").show();
+			} else {
+				$(".btmiddle").removeClass("clicked");
+				$(".btmiddle").addClass("bt");
+				$("#menu").hide();
+			}
+		});
+	});
+	</script>
+	</head>
+  <BODY>
+		<script>
+		isc.main_frame_work.create({});
+		</script>
+  </BODY>
+</HTML>

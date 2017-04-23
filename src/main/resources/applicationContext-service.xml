@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jndi="http://www.springframework.org/schema/jndi" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-2.0.xsd 
+    http://www.springframework.org/schema/tx  
+    http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/jndi 
+    http://www.springframework.org/schema/jndi/spring-jndi.xsd 
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	
+	
+	<bean scope="singleton" id="SecurityService" class="com.tangpeng.service.impl.SecurityServiceImpl">
+		<property name="i18nService" ref="I18nService"></property>
+		<property name="dataSource" ref="DataSource"></property>
+	</bean>
+	
+	<!-- sdk厂商服务 -->
+	<bean scope="singleton" id="ManufacturerService" class="com.product.service.impl.ManufacturerServiceImpl">
+		<property name="dataSource" ref="DataSource"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	
+	<!-- 渠道公司 -->
+	<bean scope="singleton" id="ChannelService" class="com.product.service.impl.ChannelServiceImpl">
+		<property name="dataSource" ref="DataSource"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	
+	
+	<!-- 产品公司 -->
+	<bean scope="singleton" id="CorporationService" class="com.product.service.impl.CorporationServiceImpl">
+		<property name="dataSource" ref="DataSource"></property>
+		<property name="i18nService" ref="I18nService"></property>
+	</bean>
+	
+	<!-- sdk服务 -->
+	<bean scope="singleton" id="SdkService" class="com.product.service.impl.SdkServiceImpl">
+		<property name="dataSource" ref="DataSource"></property>
+		<property name="i18nService" ref="I18nService"></property>
+		<property name="config" ref="Config"></property>
+	</bean>
+	
+	
+	<!-- Product服务 -->
+	<bean scope="singleton" id="ProductService" class="com.product.service.impl.ProductServiceImpl">
+		<property name="dataSource" ref="DataSource"></property>
+		<property name="i18nService" ref="I18nService"></property>
+		<property name="productRelativeService" ref="ProductRelativeService"></property>
+		<property name="config" ref="Config"></property>
+	</bean>
+	
+	<!-- ProductRelative服务 -->
+	<bean scope="singleton" id="ProductRelativeService" class="com.product.service.impl.ProductRelativeServiceImpl">
+		<property name="dataSource" ref="DataSource"></property>
+		<property name="i18nService" ref="I18nService"></property>
+		<property name="config" ref="Config"></property>
+	</bean>
+	
+	<!-- Report服务 -->
+	<bean scope="singleton" id="ReportQueryService" class="com.product.service.impl.ReportQueryServiceImpl">
+		<property name="dataSource" ref="DataSource"></property>
+	</bean>
+	<!-- statistic 服务 -->
+	<bean scope="singleton" id="StatisticQueryService" class="com.product.service.impl.StatisticQueryServiceImpl">
+		<property name="dataSource" ref="DataSource"></property>
+	</bean>
+	<!-- config 服务 -->
+	<bean scope="singleton" id="ConfigService" class="com.product.service.impl.ConfigServiceImpl">
+		<property name="dataSource" ref="DataSource"></property>
+		<property name="syncURL" ref="SyncURL"></property>
+		
+	</bean>
+	
+	
+	
+	
+	<bean scope="singleton" id="I18nService" class="com.tangpeng.utils.I18nService">
+	</bean>
+	
+	<bean id="DataSource" class="org.springframework.jndi.JndiObjectFactoryBean">  
+             <property name="jndiName" value="java:comp/env/jdbc/mms" />
+           <!--  <property name="jndiName" value="jdbc/ChannelDB" /> -->
+    </bean>  
+	<!-- 数据库连接池 
+	<bean scope="singleton" id="DataSource" class="com.tangpeng.db.DataSourceImpl">
+            <property name="jndiName" value="java:comp/env/jdbc/ChannelDB" />
+	</bean>-->
+</beans>

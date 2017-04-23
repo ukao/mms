@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<tree>
+	  
+	<tree-node nodeid="0" describe="后台管理系统" label-key="module.root" >
+		<!-- 用户管理 -->	
+		
+		<!-- 客户管理 -->	
+		<tree-node nodeid="1"  describe="客户管理"  label-key="module.customer">
+			<!-- SDK厂商 -->
+			<tree-node nodeid="11" describe="产品公司" label-key="module.customer.product.corporation" actionNo="11" >
+			</tree-node>
+			<!-- channel管理 -->
+			<tree-node nodeid="12" describe="渠道公司" label-key="module.customer.channel.corporation" actionNo="12" >
+			</tree-node>
+			
+		</tree-node>
+		
+		<!-- SDK厂商管理 -->	
+		<tree-node nodeid="2"  describe="SDK管理"  label-key="module.sdk">
+			<!-- SDK厂商 -->
+			<tree-node nodeid="21" describe="SDK公司" label-key="module.sdk.corporation" actionNo="21" >
+			</tree-node>
+			<!-- SDK管理 -->
+			<tree-node nodeid="22" describe="SDK列表" label-key="module.sdk.list" actionNo="22" >
+			</tree-node>
+			
+		</tree-node>
+		
+		<!-- 产品管理 -->	
+		<tree-node nodeid="3"  describe="产品管理"  label-key="module.product">
+			<!-- 产品管理 -->
+			<tree-node nodeid="31" describe="产品管理" label-key="module.product.management" actionNo="31" >
+			</tree-node>
+			
+			<tree-node nodeid="32" describe="产品关联" label-key="module.product.relative" actionNo="32" >
+			</tree-node>
+		</tree-node>
+		
+		<!-- 数据管理 -->	
+		<tree-node nodeid="4"  describe="数据管理"  label-key="module.data">
+			<!-- 数据管理 -->
+			<tree-node nodeid="41" describe="数据查询" label-key="module.data.query" >
+				<tree-node nodeid="411" describe="激活明细查询" label-key="module.data.query.active" actionNo="411" >
+				</tree-node>
+				<tree-node nodeid="412" describe="用户在线时间明细查询" label-key="module.data.query.useronline" actionNo="412" >
+				</tree-node>
+				<tree-node nodeid="413" describe="SDK计费明细查询" label-key="module.data.query.sdk.fee" actionNo="413" >
+				</tree-node>
+				<tree-node nodeid="414" describe="本地计费明细查询" label-key="module.data.query.local.fee" actionNo="414" >
+				</tree-node>
+				<tree-node nodeid="415" describe="渠道明细激活量查询" label-key="module.data.query.channel.active" actionNo="415" >
+				</tree-node>
+				<tree-node nodeid="416" describe="渠道明细分成查询" label-key="module.data.query.channel.fee" actionNo="416" >
+				</tree-node>
+			</tree-node>
+			<!--数据统计-->
+			<tree-node nodeid="42" describe="数据统计" label-key="module.data.statistic">
+				<tree-node nodeid="421" describe="SDK计费统计" label-key="module.data.statistic.sdk.fee" actionNo="421" >
+				</tree-node>
+				<tree-node nodeid="422" describe="本地计费统计" label-key="module.data.statistic.local.fee" actionNo="422" >
+				</tree-node>
+				<tree-node nodeid="423" describe="激活量统计" label-key="module.data.statistic.active" actionNo="423" >
+				</tree-node>
+				<tree-node nodeid="424" describe="SDK转换率统计" label-key="module.data.statistic.sdk.transfer" actionNo="424" >
+				</tree-node>
+			</tree-node>
+		</tree-node>
+		
+		<!-- 渠道查询 -->	
+		<tree-node nodeid="5"  describe="渠道商查询"  label-key="module.channel">
+			<!-- 产品查询 -->
+			<tree-node nodeid="51" describe="产品ID查询" label-key="module.channel.product" actionNo="51" >
+			</tree-node>
+			<!-- 激活量统计 -->
+			<tree-node nodeid="52" describe="激活量查询" label-key="module.channel.active" actionNo="52" >
+			</tree-node>
+			<!-- 分成统计 -->
+			<tree-node nodeid="53" describe="分成查询" label-key="module.channel.fee" actionNo="53" >
+			</tree-node>
+		</tree-node>
+		
+		<!-- 管理员配置 -->	
+		<tree-node nodeid="6"  describe="管理员配置"  label-key="module.config">
+			<!-- 激活量统计 -->
+			<tree-node nodeid="61" describe="渠道激活量配置" label-key="module.config.channel.active" actionNo="61" >
+			</tree-node>
+			<!-- 分成统计 -->
+			<tree-node nodeid="62" describe="渠道分成配置" label-key="module.config.channel.fee" actionNo="62" >
+			</tree-node>
+			<!-- feenode -->
+			<tree-node nodeid="63" describe="FeeNode配置" label-key="module.config.feenode">
+				<tree-node nodeid="631" describe="FeeNode策略管理" label-key="module.config.feenode.strategy" actionNo="631">
+				</tree-node>
+				<tree-node nodeid="632" describe="FeeNode策略配置" label-key="module.config.feenode.template" actionNo="632">
+				</tree-node>
+				<tree-node nodeid="633" describe="FeeNode策略关联" label-key="module.config.feenode.relative" actionNo="633">
+				</tree-node>
+			</tree-node>
+			<!-- 产品 -->
+			<tree-node nodeid="64" describe="产品配置" label-key="module.config.product" actionNo="64" >
+			</tree-node>
+			<!-- SDK同步参数 -->
+			<tree-node nodeid="65" describe="SDK同步参数配置" label-key="module.config.sdk" actionNo="65" >
+			</tree-node>
+			<!-- 统计任务控制台 -->
+			<tree-node nodeid="66" describe="统计任务控制台" label-key="module.config.statistic" actionNo="66" >
+			</tree-node>
+		</tree-node>
+		
+		<tree-node nodeid="9"  describe="系统管理"  label-key="module.system.management">
+			<!-- 用户管理 -->
+			<tree-node nodeid="91" describe="用户管理" label-key="module.user.management" actionNo="91" >
+				<!-- 操作权限
+				<operation value="module.user.management.view" 	describe="查看" label-key="common.operation.view" />
+				<operation value="module.user.management.add" 		describe="新增" label-key="common.operation.add" />
+				<operation value="module.user.management.modify"	describe="修改" label-key="common.operation.modify" />
+				<operation value="module.user.management.delete" 	describe="删除" label-key="common.operation.delete" />
+				 -->
+			</tree-node>
+			
+			<!-- 角色管理 -->
+			<tree-node nodeid="92" describe="角色管理" label-key="module.role.management" actionNo="92" >
+				<!-- 操作权限 
+				<operation value="module.role.management.view" 	describe="查看" label-key="common.operation.view" />
+				<operation value="module.role.management.add" 		describe="新增" label-key="common.operation.add" />
+				<operation value="module.role.management.modify"	describe="修改" label-key="common.operation.modify" />
+				<operation value="module.role.management.delete" 	describe="删除" label-key="common.operation.delete" />
+				-->
+			</tree-node>
+		</tree-node>
+		
+		
+	</tree-node>
+	
+</tree> 

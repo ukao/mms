@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN"
+    "http://jetty.mortbay.org/configure.dtd">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+    <New id="DSTest" class="org.eclipse.jetty.plus.jndi.Resource">
+     <Arg></Arg>
+     <Arg>jdbc/DSGarage</Arg>
+     <Arg>
+      <New class="com.mchange.v2.c3p0.ComboPooledDataSource">
+         <Set name="driverClass">org.apache.derby.jdbc.ClientDriver</Set>
+         <Set name="jdbcUrl">jdbc:derby://127.0.0.1:1527/DSGarage;create=true</Set>
+         <Set name="user">app</Set>
+         <Set name="password">app</Set>
+      </New>
+     </Arg>
+    </New> 
+    <New id="mms" class="org.eclipse.jetty.plus.jndi.Resource">
+     <Arg></Arg>
+     <Arg>jdbc/tp</Arg>
+     <Arg>
+      <New class="com.mchange.v2.c3p0.ComboPooledDataSource">
+         <Set name="driverClass">com.mysql.jdbc.Driver</Set>
+         <Set name="jdbcUrl">jdbc:mysql://localhost:3306/mms?noDatetimeStringSync=true&amp;characterEncoding=utf8</Set>
+         <Set name="user">test</Set>
+         <Set name="password">test</Set>
+      </New>
+     </Arg>
+    </New>
+</Configure>

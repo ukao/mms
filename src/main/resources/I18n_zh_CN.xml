@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="module.root">后台管理</entry>
+
+<entry key="login.password">密码不正确</entry>
+<entry key="login.user">用户名不存在</entry>
+<entry key="login.validator">验证码不正确</entry>
+<entry key="changepwd.password">旧密码不正确</entry>
+
+<entry key="module.role.setright.title">操作权限设置</entry>
+<entry key="module.system.management">系统管理</entry>
+<entry key="module.user.management">用户管理</entry>
+<entry key="module.role.management">角色管理</entry>
+<entry key="module.log.management">日志管理</entry>
+<entry key="module.business.management">业务管理</entry>
+<entry key="module.business.custom.management">客户管理</entry>
+<entry key="module.business.garage.management">车库管理</entry>
+<entry key="module.business.fee.management">缴费管理</entry>
+
+<entry key="module.data.setright.title">数据权限设置</entry>
+
+<entry key="common.operation.view">查看</entry>
+<entry key="common.operation.add">新增</entry>
+<entry key="common.operation.modify">修改</entry>
+<entry key="common.operation.delete">删除</entry>
+
+<entry key="common.operation.sucess">操作成功</entry>
+<entry key="common.operation.failed">操作失败</entry>
+<entry key="common.operation.username.deplicated">用户名称已存在</entry>
+<entry key="common.operation.name.deplicated">名称已存在</entry>
+<entry key="common.operation.name.and.version.deplicated">(名称+版本)已存在</entry>
+
+
+<entry key="module.customer" >客户管理</entry>
+<entry key="module.customer.product.corporation" >产品公司</entry>
+<entry key="module.customer.channel.corporation" >渠道公司</entry>
+
+<entry key="module.sdk">SDK管理</entry>
+<entry key="module.sdk.corporation">SDK公司</entry>
+<entry key="module.sdk.list">SDK列表</entry>
+
+<entry key="module.product">产品</entry>
+<entry key="module.product.management">产品列表</entry>
+<entry key="module.product.relative">产品ID分配</entry>
+<entry key="module.product.relative.channel">该渠道已关联了产品不能删除</entry>
+<entry key="module.product.relative.product">该产品已关联了渠道不能删除</entry>
+
+<entry key="module.data">数据管理</entry>
+<entry key="module.data.query">数据查询</entry>
+<entry key="module.data.query.active">激活明细查询</entry>
+<entry key="module.data.query.sdk.fee">SDK计费明细查询</entry>
+<entry key="module.data.query.local.fee">本地计费明细查询</entry>
+<entry key="module.data.query.channel.active">渠道激活量明细查询</entry>
+<entry key="module.data.query.channel.fee">渠道分成明细查询</entry>
+<entry key="module.data.query.useronline">用户在线时间明细查询</entry>
+
+<entry key="module.data.statistic">数据统计</entry>
+<entry key="module.data.statistic.sdk.fee">SDK计费统计</entry>
+<entry key="module.data.statistic.local.fee">本地计费统计</entry>
+<entry key="module.data.statistic.active">激活量统计</entry>
+<entry key="module.data.statistic.sdk.transfer">sdk转化率统计</entry>
+
+<entry key="module.channel">渠道查询</entry>
+<entry key="module.channel.product">产品ID查询</entry>
+<entry key="module.channel.active">激活量查询</entry>
+<entry key="module.channel.fee">分成查询</entry>
+
+<entry key="module.config">管理员配置</entry>
+<entry key="module.config.channel.active">渠道激活量配置</entry>
+<entry key="module.config.channel.fee">渠道分成查询配置</entry>
+<entry key="module.config.feenode">FeeNode配置</entry>
+<entry key="module.config.feenode.strategy">FeeNode策略管理</entry>
+<entry key="module.config.feenode.template">FeeNode策略配置</entry>
+<entry key="module.config.feenode.relative">FeeNode策略关联</entry>
+<entry key="module.config.product">产品配置</entry>
+<entry key="module.config.sdk">SDK同步参数配置</entry>
+<entry key="module.config.statistic">统计任务控制台</entry>
+
+</properties>
